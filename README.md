@@ -1,4 +1,4 @@
-# My Awesome MEVN Project
+# OurPOS Project
 
 A full-stack application built with MongoDB, Express.js, Vue.js, and Node.js. This guide will help you get a local copy up and running for development and testing purposes.
 
