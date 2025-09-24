@@ -1,8 +1,15 @@
-# OurPOS Project
+Of course. Now that your project is running on PostgreSQL, your `README.md` needs to reflect those changes so new collaborators can get set up correctly.
 
-A full-stack application built with MongoDB, Express.js, Vue.js, and Node.js. This guide will help you get a local copy up and running for development and testing purposes.
+Here is the updated version of your `README.md` file. It's been edited to include instructions for PostgreSQL and Sequelize instead of MongoDB and Mongoose.
 
+You can copy and paste this entire block into your `README.md` file.
 
+-----
+
+````markdown
+# Full-Stack POS Prototype (PostgreSQL, Express, Vue, Node)
+
+A full-stack Point of Sales application built with PostgreSQL, Express.js, Vue.js, and Node.js. This guide will help you get a local copy up and running for development and testing purposes.
 
 ## Prerequisites
 
@@ -10,7 +17,11 @@ Before you begin, ensure you have the following installed on your system:
 * **Node.js** (v18 or later recommended)
 * **npm** (comes with Node.js)
 * **Git**
-* A running **MongoDB** instance. The easiest way to get started is with a free cluster from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+* **PostgreSQL:** You need a local PostgreSQL server running.
+    * **Windows:** Download the installer from [EnterpriseDB](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+    * **Mac:** The easiest way is with [Postgres.app](https://postgresapp.com/).
+    * During installation, you'll set a password for the `postgres` user. Remember it!
+    * After installation, use a tool like **pgAdmin** or `psql` to create a new, empty database for this project (e.g., `pos_prototype`).
 
 ---
 ## Getting Started
@@ -20,12 +31,12 @@ Follow these steps to set up the project locally.
 ### 1. Clone the Repository
 First, clone the project from GitHub to your local machine.
 ```bash
-git clone [https://github.com/your-username/my-mevn-app.git](https://github.com/your-username/my-mevn-app.git)
-cd my-mevn-app
+git clone [https://github.com/your-username/your-project-name.git](https://github.com/your-username/your-project-name.git)
+cd your-project-name
 ```
 
 ### 2. Install Dependencies
-This project is a monorepo with separate dependencies for the backend server and the frontend client. You'll need to install them in both directories.
+This project has separate dependencies for the backend server and the frontend client. You'll need to install them in both directories.
 
 * **Install Backend Dependencies:**
     ```bash
@@ -40,17 +51,18 @@ This project is a monorepo with separate dependencies for the backend server and
     ```
 
 ### 3. Set Up Environment Variables
-The backend server requires a `.env` file to store sensitive information like your database connection string.
+The backend server requires a `.env` file to connect to your PostgreSQL database.
 
 1.  Navigate to the `server` directory.
-2.  Create a copy of the example environment file:
-    ```bash
-    cp .env.example .env
+2.  Create a new file named `.env`. You can copy the example file if one exists (`cp .env.example .env`).
+3.  Open the new `.env` file and add your PostgreSQL connection string. Replace the placeholders with your own local database credentials.
+4. If you are using supabase, please choose "Transaction Pooler" for the database URL.
     ```
-    *(If you don't have an `.env.example` file, simply create a new file named `.env`)*
-3.  Open the newly created `.env` file and add your MongoDB connection string:
-    ```
-    MONGO_URI=mongodb+srv://<username>:<password>@yourcluster.mongodb.net/yourDatabaseName
+    # PostgreSQL Connection URL
+    # Format: postgres://USER:PASSWORD@HOST:PORT/DATABASE_NAME
+    DATABASE_URL=postgres://postgres:your_password_here@localhost:5432/pos_prototype
+    
+    # Port for the Express server
     PORT=5000
     ```
 
@@ -62,7 +74,7 @@ To run the full application, you will need to start both the backend and fronten
 ### Terminal 1: Run the Backend Server
 ```bash
 cd server
-npm start
+node server.js
 ```
 Your backend API should now be running on `http://localhost:5000`.
 
@@ -83,3 +95,4 @@ We welcome contributions! Please follow these steps to contribute:
 3.  Make your changes and commit them with a descriptive message.
 4.  Push your changes to your fork: `git push origin feature/your-amazing-feature`.
 5.  Open a **Pull Request** to the `main` branch of this repository.
+````
