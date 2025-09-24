@@ -1,12 +1,3 @@
-Of course. Now that your project is running on PostgreSQL, your `README.md` needs to reflect those changes so new collaborators can get set up correctly.
-
-Here is the updated version of your `README.md` file. It's been edited to include instructions for PostgreSQL and Sequelize instead of MongoDB and Mongoose.
-
-You can copy and paste this entire block into your `README.md` file.
-
------
-
-````markdown
 # Full-Stack POS Prototype (PostgreSQL, Express, Vue, Node)
 
 A full-stack Point of Sales application built with PostgreSQL, Express.js, Vue.js, and Node.js. This guide will help you get a local copy up and running for development and testing purposes.
